@@ -1,0 +1,88 @@
+﻿/* TITLE --------------------------------------------------------*/
+.form-table {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 1px solid #0DC6FF;
+    background: rgba(244,244,244,1);
+    -webkit-box-shadow: #B3B3B3 8px 8px 8px;
+    -moz-box-shadow: #B3B3B3 8px 8px 8px;
+    box-shadow: #B3B3B3 8px 8px 8px;
+}
+
+.form-title {
+    padding: 5px;
+}
+
+.form-label {
+    text-align: right;
+    height: 25px;
+    vertical-align: top;
+    line-height: 25px;
+}
+
+.form-deger {
+    width: 85%;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.text-input {
+    height: 21px;
+}
+
+.register-table {
+    width: 700px;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .register-table td,
+    .register-table tr {
+    padding: 2px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    font-family: Verdana;
+    font-size: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h3 {
+    display: inline-block;
+}
+
+.loadPanel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #808080;
+}
+#lblYayinSuresi {
+    width: 75px;
+    float: left;
+    margin-left: 15px;
+    border: solid 1px #ccc;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    background-color: #BEDDFE;
+     -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+#panelKayitTamamlandi {
+    width: 100%;
+    text-align: center;
+     height:450px;
+}
+#haberKayitEdildi {
+   
+   
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+}

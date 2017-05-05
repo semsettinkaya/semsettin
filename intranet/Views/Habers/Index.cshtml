@@ -1,0 +1,118 @@
+﻿@model IEnumerable<DAL.Haber>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KullaniciId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaberTuru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EkDosyaVarMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FotoGaleriMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KayitTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaslangicTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BitisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnemDerecesi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onaylayan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnayTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnayDurumu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnayGerekcesi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YayınYeri)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaberTuru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EkDosyaVarMi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FotoGaleriMi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KayitTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaslangicTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BitisTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnemDerecesi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Onaylayan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnayTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnayDurumu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnayGerekcesi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YayınYeri)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.No }) |
+            @Html.ActionLink("Details", "Details", new { id=item.No }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.No })
+        </td>
+    </tr>
+}
+
+</table>

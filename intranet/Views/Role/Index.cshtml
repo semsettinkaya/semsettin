@@ -1,0 +1,40 @@
+﻿@model IEnumerable<intranet.Altyapi.RoleApp>
+@using intranet.Altyapi
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>Role Id</th>
+		<th>Role Adı</th>
+		<th>Role Kullanıcıları</th>
+	</tr>
+
+@foreach (var item in Model) {
+    <tr>
+		<td>@item.Id</td>
+		<th>@item.Name</th>
+
+		<th>
+			@if (item.Users.Any())
+			{
+			<text>	@string.Join(",", item.Users.Select(a => Helper.GetUserName(a.UserId)).ToArray()); </text>
+			}
+			else
+			{
+				<text>bu role bağlı herhangi bir kullanıcı yoktur</text>
+			}
+		</th>
+
+		
+    </tr>
+}
+
+</table>

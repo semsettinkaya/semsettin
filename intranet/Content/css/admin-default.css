@@ -1,0 +1,75 @@
+﻿
+#defaultCerceve {
+    background-color: #FFFFFF;
+    width: 990px;
+    position: absolute;
+    padding: 5px;
+}
+
+#haberListe {
+    position: relative;
+    float: left;
+    width: 350px;
+    margin-right: 5px;
+}
+
+
+
+
+.haber-detay-label {
+    height: 26px;
+    text-align: right;
+    padding-right: 8px;
+    white-space: nowrap;
+}
+
+.haberDetay input,textarea {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    padding: 5px 2px;
+    width: 90%;
+    border: 1px solid #79b7e7;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.radioYayinYeri {
+    cursor:pointer;
+}
+.radioYayinYeri img {
+    padding-right: 5px;
+}
+
+.radioYayinYeri label {
+    padding-left: 5px;
+    padding-top: 4px;
+    display: inline-block;
+}
+
+
+
+
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+::-moz-placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+:-ms-input-placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+input:-moz-placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+#haberDetaylari
+{
+    float: left;
+}

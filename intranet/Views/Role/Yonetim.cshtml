@@ -1,0 +1,57 @@
+﻿@model IEnumerable<intranet.Altyapi.UserApp>
+	@using intranet.Altyapi;
+
+@{
+    ViewBag.Title = "Yonetim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yonetim</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+           User Id
+        </th>
+        <th>
+            UserName
+        </th>
+
+		@foreach (var item in Helper.GetRoles())
+		{
+			<th>@item.Name</th>
+		}
+		<th>Rolleri Güncelle</th>
+</tr>
+@foreach (var item in Model)
+{
+	<tr>
+		<td>@item.Id)</td>
+		<th>@item.UserName</th>
+
+
+		@using (Html.BeginForm())
+		{
+			@Html.Hidden("userId", @item.Id);
+
+			foreach (var role in Helper.GetRoles())
+			{
+		<th><input type="checkbox" value="@role.Name" name="RoleNames" checked="@item.Roles.Any(a => a.RoleId == role.Id)" /></th>
+				}
+		<th> <input type="submit" value="Güncelle" /></th>
+		}
+	</tr>
+}
+
+
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+
+
+</table>

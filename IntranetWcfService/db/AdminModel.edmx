@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="intranet2013Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EkDosya">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HaberNo" Type="int" />
+          <Property Name="Ad" Type="nvarchar(max)" />
+          <Property Name="Boyut" Type="nvarchar(max)" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="Tur" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="datetime2" Precision="7" />
+          <Property Name="Onay" Type="int" />
+        </EntityType>
+        <EntityType Name="Haber">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tur" Type="int" />
+          <Property Name="Baslik" Type="nvarchar(max)" />
+          <Property Name="Icerik" Type="nvarchar(max)" />
+          <Property Name="EkDosyaVarMi" Type="bit" />
+          <Property Name="FotoGaleriMi" Type="bit" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="BaslangicTarihi" Type="datetime" />
+          <Property Name="YayinSuresi" Type="int" />
+          <Property Name="BitisTarihi" Type="datetime" />
+          <Property Name="GonderenAdi" Type="nvarchar(max)" />
+          <Property Name="GonderenSoyadi" Type="nvarchar(max)" />
+          <Property Name="GonderenSicil" Type="int" />
+          <Property Name="GonderenBirim" Type="nvarchar(max)" />
+          <Property Name="GonderenBaskanlik" Type="nvarchar(max)" />
+          <Property Name="GonderenEposta" Type="nvarchar(max)" />
+          <Property Name="GonderenTelefon" Type="nvarchar(max)" />
+          <Property Name="OnemDerecesi" Type="int" />
+          <Property Name="Onaylayan" Type="nvarchar(max)" />
+          <Property Name="OnayTarihi" Type="datetime" />
+          <Property Name="OnayDurumu" Type="int" />
+          <Property Name="OnayGerekcesi" Type="nvarchar(max)" />
+          <Property Name="YayınYeri" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'intranet2013.dbo.sozluk_Baskanliklar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sozluk_Baskanliklar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BaskanlikAdi" Type="nvarchar(max)" />
+          <Property Name="OnemDerecesi" Type="int" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="BolgeId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'intranet2013.dbo.sozluk_Birimler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sozluk_Birimler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BirimAdi" Type="nvarchar(max)" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sozluk_HaberTurleri">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="TurAdi" Type="nvarchar(max)" />
+          <Property Name="Icon" Type="nvarchar(max)" />
+          <Property Name="StilAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="intranet2013ModelStoreContainer">
+          <EntitySet Name="EkDosya" EntityType="Self.EkDosya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Haber" EntityType="Self.Haber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sozluk_HaberTurleri" EntityType="Self.sozluk_HaberTurleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sozluk_Baskanliklar" EntityType="Self.sozluk_Baskanliklar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sozluk_Baskanliklar].[Id] AS [Id], 
+    [sozluk_Baskanliklar].[BaskanlikAdi] AS [BaskanlikAdi], 
+    [sozluk_Baskanliklar].[OnemDerecesi] AS [OnemDerecesi], 
+    [sozluk_Baskanliklar].[Aciklama] AS [Aciklama], 
+    [sozluk_Baskanliklar].[BolgeId] AS [BolgeId]
+    FROM [dbo].[sozluk_Baskanliklar] AS [sozluk_Baskanliklar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sozluk_Birimler" EntityType="Self.sozluk_Birimler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sozluk_Birimler].[Id] AS [Id], 
+    [sozluk_Birimler].[BirimAdi] AS [BirimAdi], 
+    [sozluk_Birimler].[Aciklama] AS [Aciklama]
+    FROM [dbo].[sozluk_Birimler] AS [sozluk_Birimler]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="intranet2013Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EkDosya">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HaberNo" Type="Int32" />
+          <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Boyut" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="7" />
+          <Property Name="Onay" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Haber">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tur" Type="Int32" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EkDosyaVarMi" Type="Boolean" />
+          <Property Name="FotoGaleriMi" Type="Boolean" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="BaslangicTarihi" Type="DateTime" Precision="3" />
+          <Property Name="YayinSuresi" Type="Int32" />
+          <Property Name="BitisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="GonderenAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GonderenSoyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GonderenSicil" Type="Int32" />
+          <Property Name="GonderenBirim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GonderenBaskanlik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GonderenEposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GonderenTelefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OnemDerecesi" Type="Int32" />
+          <Property Name="Onaylayan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OnayTarihi" Type="DateTime" Precision="3" />
+          <Property Name="OnayDurumu" Type="Int32" />
+          <Property Name="OnayGerekcesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YayınYeri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sozluk_HaberTurleri">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="TurAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StilAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sozluk_Baskanliklar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BaskanlikAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OnemDerecesi" Type="Int32" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BolgeId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sozluk_Birimler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BirimAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="intranet2013Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EkDosyas" EntityType="Self.EkDosya" />
+          <EntitySet Name="Habers" EntityType="Self.Haber" />
+          <EntitySet Name="sozluk_HaberTurleri" EntityType="Self.sozluk_HaberTurleri" />
+          <EntitySet Name="sozluk_Baskanliklar" EntityType="Self.sozluk_Baskanliklar" />
+          <EntitySet Name="sozluk_Birimler" EntityType="Self.sozluk_Birimler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="intranet2013ModelStoreContainer" CdmEntityContainer="intranet2013Entities">
+          <EntitySetMapping Name="EkDosyas">
+            <EntityTypeMapping TypeName="intranet2013Model.EkDosya">
+              <MappingFragment StoreEntitySet="EkDosya">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="HaberNo" ColumnName="HaberNo" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Boyut" ColumnName="Boyut" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Tur" ColumnName="Tur" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Onay" ColumnName="Onay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Habers">
+            <EntityTypeMapping TypeName="intranet2013Model.Haber">
+              <MappingFragment StoreEntitySet="Haber">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Tur" ColumnName="Tur" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+                <ScalarProperty Name="EkDosyaVarMi" ColumnName="EkDosyaVarMi" />
+                <ScalarProperty Name="FotoGaleriMi" ColumnName="FotoGaleriMi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />
+                <ScalarProperty Name="YayinSuresi" ColumnName="YayinSuresi" />
+                <ScalarProperty Name="BitisTarihi" ColumnName="BitisTarihi" />
+                <ScalarProperty Name="GonderenAdi" ColumnName="GonderenAdi" />
+                <ScalarProperty Name="GonderenSoyadi" ColumnName="GonderenSoyadi" />
+                <ScalarProperty Name="GonderenSicil" ColumnName="GonderenSicil" />
+                <ScalarProperty Name="GonderenBirim" ColumnName="GonderenBirim" />
+                <ScalarProperty Name="GonderenBaskanlik" ColumnName="GonderenBaskanlik" />
+                <ScalarProperty Name="GonderenEposta" ColumnName="GonderenEposta" />
+                <ScalarProperty Name="GonderenTelefon" ColumnName="GonderenTelefon" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="Onaylayan" ColumnName="Onaylayan" />
+                <ScalarProperty Name="OnayTarihi" ColumnName="OnayTarihi" />
+                <ScalarProperty Name="OnayDurumu" ColumnName="OnayDurumu" />
+                <ScalarProperty Name="OnayGerekcesi" ColumnName="OnayGerekcesi" />
+                <ScalarProperty Name="YayınYeri" ColumnName="YayınYeri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sozluk_HaberTurleri">
+            <EntityTypeMapping TypeName="intranet2013Model.sozluk_HaberTurleri">
+              <MappingFragment StoreEntitySet="sozluk_HaberTurleri">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="TurAdi" ColumnName="TurAdi" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="StilAdi" ColumnName="StilAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sozluk_Baskanliklar">
+            <EntityTypeMapping TypeName="intranet2013Model.sozluk_Baskanliklar">
+              <MappingFragment StoreEntitySet="sozluk_Baskanliklar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BaskanlikAdi" ColumnName="BaskanlikAdi" />
+                <ScalarProperty Name="OnemDerecesi" ColumnName="OnemDerecesi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="BolgeId" ColumnName="BolgeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sozluk_Birimler">
+            <EntityTypeMapping TypeName="intranet2013Model.sozluk_Birimler">
+              <MappingFragment StoreEntitySet="sozluk_Birimler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BirimAdi" ColumnName="BirimAdi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

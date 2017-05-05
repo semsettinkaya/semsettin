@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title - Anasayfa</title>
+	
+	@Styles.Render("~/Content/ziko")
+	<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="tepe">
+			<div class="container-fluid">
+				<ul>
+
+					<li>BTS</li>
+					<li>Perdes</li>
+					<li>KYS</li>
+					<li>Mevbis</li>
+					<li>Tümas</li>
+					<li>Meltem</li>
+					<li>Hezarfen</li>
+					<li>Extranet</li>
+					<li>Kardelen</li>
+					<li>Anasayfa</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!--<a class="navbar-brand" href="index.html">Start Bootstrap</a>-->
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav">
+					<li>
+						<i class="fa fa-area-chart" aria-hidden="true"></i>
+						<span>Tahminler</span>
+					</li>
+					<li>
+						<i class="fa fa-binoculars" aria-hidden="true"></i>
+						<span>Gözlemler</span>
+					</li>
+					<li>
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+						<span>Mettah</span>
+					</li>
+					<li>
+						<i class="fa fa-lemon-o" aria-hidden="true"></i>
+						<span>Zirai</span>
+					</li>
+					<li>
+						<i class="fa fa-globe" aria-hidden="true"></i>
+						<span>Uydu &  Radar</span>
+					</li>
+					<li>
+						<i class="fa fa-film" aria-hidden="true"></i>
+						<span>İş Takip</span>
+					</li>
+					<li>
+						<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						<span>E-Posta</span>
+
+						<!--<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="portfolio-1-col.html">1 Column Portfolio</a>
+								</li>
+								<li>
+									<a href="portfolio-2-col.html">2 Column Portfolio</a>
+								</li>
+								<li>
+									<a href="portfolio-3-col.html">3 Column Portfolio</a>
+								</li>
+								<li>
+									<a href="portfolio-4-col.html">4 Column Portfolio</a>
+								</li>
+								<li>
+									<a href="portfolio-item.html">Single Portfolio Item</a>
+								</li>
+							</ul>
+						</li>-->
+
+
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+	<div style="margin-top:86px" class="container-fluid">
+		<!-- Marketing Icons Section -->
+		
+		<!-- /.row -->
+		@RenderBody()
+		<hr>
+		<!-- Call to Action Section -->
+
+		<hr>
+		<!-- Footer -->
+		<footer>
+			<div style="text-align:center" class="row">
+				<div style="min-height:100px;background: #baccd4" class="col-lg-12">
+					IP Adresiniz : <b>192.168.21.233</b>
+
+				</div>
+				<div class="col-lg-12">
+					<p>Copyright &copy; MGM Yazılım ve Donanım Şube Müdürlüğü 2017</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	    @Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>

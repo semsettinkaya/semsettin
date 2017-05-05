@@ -1,0 +1,48 @@
+@media (max-width: 992px) {
+    .tepe {
+    width: 100%;
+    color: white;
+    background-color: #57c7d4;
+        font-size:13px;
+        padding-top:5px;
+
+}
+    .haber-resim img {
+    border-radius: 50%;
+    border: 2px solid #fff !important;
+    height: 70px !important;
+    /* width: 120px; */
+}
+}
+
+@media (max-width: 700px) {
+    .tepe {
+        font-size: 13px;
+        height: 70px !important;
+        line-height: 15px !important;
+    }
+
+        .tepe ul li {
+            list-style: none;
+            float: right;
+            padding: 2px 13px;
+        }
+}
+
+@media (max-width:640px){
+ .haber-resim{
+        display:none;
+    }
+ .haber-icerik{
+     width: 100% !important;
+ }
+}
+
+@media (max-width: 500px) {
+
+    .navbar-nav > li {
+        width: 100% !important;
+    }
+   
+  
+}
